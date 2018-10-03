@@ -1,4 +1,4 @@
-/* Practic Thread class.(java.lang.Thread)
+/* Practice Thread class.(java.lang.Thread)
  * Especially implement Runnable interface and override run()
  * 
  */
