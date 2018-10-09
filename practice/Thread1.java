@@ -1,4 +1,5 @@
-/* Practic Thread class.(java.lang.Thread)
+package practice;
+/* Practice Thread class.(java.lang.Thread)
  * Especially implement Runnable interface and override run()
  * 
  */
