@@ -1,4 +1,7 @@
+<<<<<<< HEAD:practice/Thread1.java
 package practice;
+=======
+>>>>>>> b343e0c4b8b3b437105f2e8e535e69781941291c:Thread1.java
 /* Practice Thread class.(java.lang.Thread)
  * Especially implement Runnable interface and override run()
  * 
