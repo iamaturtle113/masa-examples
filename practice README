@@ -1,0 +1,9 @@
+If you want to execute java program.
+do
+javac -d . practice/"java program's name"
+and
+java practice."class name (exclude .class modifier)"
+from masa-examples directory.
+
+Cheeres!!
+
