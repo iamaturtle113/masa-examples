@@ -1,4 +1,4 @@
-package practice.testdir;
+package practice;
 import java.io.*;
 import java.util.Arrays;
 
