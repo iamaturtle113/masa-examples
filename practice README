@@ -7,6 +7,11 @@ from masa-examples directory.
 
 Or you can execute from jar file(s).
 Clone jar file and make it executable and run it.
+In my Ubuntu environment choose jar file by right click and proceed to
+Properties > Permissions and check "Allow executing file as program"
+of Execute row.
 
-Cheeres!!
 
+Masataka Nakamura a.k.a La Ville Eternell
+Official:
+https://lavilleeternelle.wordpress.com/
