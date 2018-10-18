@@ -1,7 +1,11 @@
 package applications;
 import static practice.IOMethods.*;
 import javax.swing.*;
+
+//import masa_stdlib.Drawing;
+
 import java.awt.*;
+//import  masa_stdlib.Drawing.*;
 /*180601(Fri)
  * プロッティングしたくなる。まず線の描画
  * 座標のｘとｙの順番を間違えていた。
@@ -15,7 +19,8 @@ public class PlottingProgram01 extends JPanel
 	
 	static int frameHeight=600;//DrawPanel's size
 	public static int frameWidth=600;
-	
+	static String equation1 = "Input equation 1";//方程式のひとつ目
+	static String equation2 = "Input equation 2";
 	Point p1=new Point(100,100);
 	Point p2=new Point(200,200);
 	Point p3=new Point(0,300,5);//点専用のポイント
@@ -46,18 +51,20 @@ public class PlottingProgram01 extends JPanel
  
 
 	public void init() {
-		//JPanel panel =new JPanel();
-		//JLabel label=new JLabel("0");
-		//JLabel labelPlane=new JLabel("0");
 		JFrame frame = new JFrame("PlottingProgram01 Program!!!");
-		 DrawPanel DP=new DrawPanel();
+		DrawPanel DP=new DrawPanel();//DrawPanelはJPanelのオーバーライドクラスのインスタンス
+		JPanel equaionsPanel = new JPanel(); 
+		equaionsPanel.setBackground(Color.CYAN);
+		equaionsPanel.setLayout(new GridLayout(2,0,10,100));//追加
+		JTextField equationField1 = new JTextField("Test Strings sub to var equation1");
+		JTextField equationField2 = new JTextField(equation2);
+		equationField1.setPreferredSize(new Dimension(200,1));//
+		equationField1.setForeground(Color.BLUE);//
+		equationField1.setBackground(Color.GRAY);
+		equaionsPanel.add(equationField1);//追加
+		equaionsPanel.add(equationField2);//追加
 		
 		DP.setLayout(null);
-		//label.setSize(100, 10);//(width, height);
-		//label.setLocation(0, 0);
-		//label.setBounds(0,0,80,100);
-		//DP.add(label);
-		//printPointOrdinate(DP);
 		
 //initにlabeladdをかく
 		//Draw strings by labels
@@ -82,11 +89,11 @@ public class PlottingProgram01 extends JPanel
 		
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//frame.getContentPane().add(BorderLayout.NORTH,panel);
-		frame.getContentPane().add(DP);
+		frame.getContentPane().add(BorderLayout.CENTER, DP);
+		frame.getContentPane().add(BorderLayout.EAST, equaionsPanel);
 		DP.setSize(frameWidth,frameHeight);
 		
-		frame.setSize(frameWidth,frameHeight);
+		frame.setSize(frameWidth + 200,frameHeight);
 		
 		
 		frame.setVisible(true);
@@ -96,47 +103,6 @@ public class PlottingProgram01 extends JPanel
     */
 	
     
-/*
-	public  void printPointOrdinate(DrawPanel obj)
-	{
-		//for (int i=0;i<10;i++)
-		//int length=10;
-		JLabel[] l=new JLabel[1];
-		l[0]=new JLabel("1");
-		l[1]=new JLabel("2");
-		l[0].setSize(100, 10);//(width, height);
-		l[1].setLocation(10, 20);
-		
-		l[0].setSize(100, 10);//(width, height);
-		l[1].setLocation(20, 30);
-
-		obj.add(l[0]);
-		obj.add(l[1]);
-*/		
-/*		
-		for (JLabel l:labelArray)
-		{
-		//String index;
-		//int x=0;
-		//int i=0;
-		int y=0;
-		//String labelX;
-		//labelX=("label"+Integer.toString(i));
-		
-		//JLabel label=new JLabel(Integer.toString(i));
-
-		
-		l.setSize(100, 10);//(width, height);
-		l.setLocation(0, y);
-		y+=10;
-		obj.add(l);
-		
-		//if(i==8)break;
-		
-		}
-
-	}
-*/
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		PlottingProgram01 plot=new PlottingProgram01();
@@ -155,15 +121,6 @@ public class PlottingProgram01 extends JPanel
 			g.setColor(Color.WHITE);//たぶんバックグラウンドの色
 			g.fillRect(0, 0, this.getWidth(),this.getHeight() );//背景の色を埋める？
 			g.setColor(Color.BLACK);//また色の定義
-			//g.fillRoundRect(60, 100, 100, 100,30,60);
-			//g.fillRect(250, 350, Simulation01.x,Simulation01.y );//四角を色付け
-			//System.out.println("pC");
-			//fillRect(int x, int y, int width, int height)
-			
-			//g.fillOval(Simulation2.x, Simulation2.y, Simulation2.ovalWidth, Simulation2.ovalHeight );
-			//g.drawLine(200, 200,200,200 );//点をうつ
-			//drawPoint(g, p1);
-			//drawPointLine(g,p3);//点線を描く
 			drawPointH(g, pCenter);
 			drawRuledLine(g);
 			drawLineWithPoint(g,pV1,pV2);
@@ -172,16 +129,7 @@ public class PlottingProgram01 extends JPanel
 			drawQuadraticEq(g);
 			//addLabels(lArray);
 			generateLabels();
-			//g.drawLine(500, 300, Simulation01.x,Simulation01.y );
-			//Image img = new ImageIcon("Wey_FB_prof.jpg").getImage();
-//			Image img = new ImageIcon("IMG_1257.JPG").getImage();
-			//g.drawImage(img, Simulation01.x, Simulation01.y, 300, 300, this);
-			//座標、大きさ、thisはimageobserver、よくわからん
-			//Where is this methods ref page?
-		}//paintComponent end
-	   
-
-	    
+		}
 		
 		public void drawPoint(Graphics g,Point p) {
 			
@@ -265,6 +213,7 @@ public class PlottingProgram01 extends JPanel
 		
 	}//class DrawPanel end
 	
+	
 	public class Point{
 		int x;
 		int y;
@@ -283,6 +232,8 @@ public class PlottingProgram01 extends JPanel
 		
 
 	}//Point End
+	
 
 }//class PlottingProgram01 End 
+
 
