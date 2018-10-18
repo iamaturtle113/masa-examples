@@ -50,7 +50,8 @@ public class PlottingProgram01 extends JPanel
 
  
 
-	public void init() {
+	public void init() 
+	{
 		JFrame frame = new JFrame("PlottingProgram01 Program!!!");
 		DrawPanel DP=new DrawPanel();//DrawPanelはJPanelのオーバーライドクラスのインスタンス
 		JPanel equaionsPanel = new JPanel(); 
@@ -103,7 +104,8 @@ public class PlottingProgram01 extends JPanel
     */
 	
     
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		// TODO Auto-generated method stub
 		PlottingProgram01 plot=new PlottingProgram01();
 		plot.init();
@@ -131,17 +133,20 @@ public class PlottingProgram01 extends JPanel
 			generateLabels();
 		}
 		
-		public void drawPoint(Graphics g,Point p) {
+		public void drawPoint(Graphics g,Point p) 
+		{
 			
 			g.drawLine(p.x, p.y, p.x, p.y);
 		}
 		
-		public void drawPointH(Graphics g,Point p) {
+		public void drawPointH(Graphics g,Point p) 
+		{
 			
 			g.drawLine(p.x, p.y, p.x, p.y+p.value);
 		}
 		
-		public void drawPointW(Graphics g,Point p) {
+		public void drawPointW(Graphics g,Point p) 
+		{
 			g.drawLine(p.x, p.y, p.x+p.value, p.y);
 		}
 		
@@ -149,8 +154,10 @@ public class PlottingProgram01 extends JPanel
 			
 			//点線を描くメソッド
 			//フレームサイズ変えると消える
-		public void drawPointLine(Graphics g,Point p) {
-			for (int i=0;i<400;i+=10) {
+		public void drawPointLine(Graphics g,Point p) 
+		{
+			for (int i=0;i<400;i+=10) 
+			{
 				//g.drawLine(p3.x+i,p3.y,p3.x+i,p3.y);
 				drawPointW(g, p);
 				//p.x=p.x+i;
@@ -159,9 +166,11 @@ public class PlottingProgram01 extends JPanel
 		}
 		
 		//方眼の横線の描画
-		public void drawRuledLine(Graphics g) {
+		public void drawRuledLine(Graphics g) 
+		{
 			Point pR=new Point(0,0,10);
-			for (int i=0;i<frameHeight;i+=10) {
+			for (int i=0;i<frameHeight;i+=10) 
+			{
 				drawPointW(g,pR);
 				pR.y=pR.y+10;
 			
@@ -214,17 +223,20 @@ public class PlottingProgram01 extends JPanel
 	}//class DrawPanel end
 	
 	
-	public class Point{
+	public class Point
+	{
 		int x;
 		int y;
 		int value;
 		//int width;
-		Point(int x,int y) {
+		Point(int x,int y) 
+		{
 			this.x=x;
 			this.y=y;
 		}
 		
-		Point(int x,int y,int value){
+		Point(int x,int y,int value)
+		{
 			this.x=x;
 			this.y=y;
 			this. value=value;
