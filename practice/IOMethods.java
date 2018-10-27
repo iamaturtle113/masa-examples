@@ -70,6 +70,15 @@ public class IOMethods {
 			i++;
 		}
 	}
+
+	public static void printList(List<String> list) {
+		int i=0;
+		for (String element:list) {
+			println("["+i+"]: "+element);
+			i++;
+		}
+	}
+
 	//テスト用のメインメソッド
 	public static void main(String[] args) {
 		//jcat("/home/masa/test.txt");
